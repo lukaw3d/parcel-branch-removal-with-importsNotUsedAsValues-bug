@@ -14,3 +14,7 @@ dist/a.js    116 B     83ms
 dist/b.js      0 B    112ms
 Done in 0.96s.
 ```
+
+- [./dist/a.js](./dist/a.js) includes (but doesn't use) the imported `@parcel/cache/lib/constants`.
+- [./dist/b.js](./dist/b.js) is empty.
+
