@@ -1,4 +1,4 @@
-# Parcel's branch removal in TypeScript doesn't respect importsNotUsedAsValues
+# Parcel's branch removal doesn't combine with TypeScript's import elision
 
 Current docs: https://github.com/parcel-bundler/website/blob/c0d46b1/src/features/production.md#development-branch-removal-branch-removal
 
@@ -18,3 +18,6 @@ Done in 0.96s.
 - [./dist/a.js](./dist/a.js) includes (but doesn't use) the imported `@parcel/cache/lib/constants`.
 - [./dist/b.js](./dist/b.js) is empty.
 
+This looks as if Parcel is overriding TypeScript's import elision (verbatimModuleSyntax, importsNotUsedAsValues, preserveValueImports), but what probably happens is:
+- compile TypeScript with import elision, while branch is there and import is used
+- process JavaScript to remove unused branch
